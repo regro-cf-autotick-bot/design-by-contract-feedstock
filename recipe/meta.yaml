@@ -1,5 +1,5 @@
 {% set name = "design-by-contract" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/design-by-contract-{{ version }}.tar.gz
-  sha256: 15882cd06b81990ff800439af464eac77bed1fddbdb83fde859d6773bbad4c47
+  sha256: 8f1b77a07b925250b1e67b61437d1f7565f3880f434617c92cc9f0c6e6aedd48
 
 build:
   noarch: python
