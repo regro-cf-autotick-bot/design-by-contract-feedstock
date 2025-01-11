@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "design-by-contract" %}
 {% set version = "0.3.1" %}
 
@@ -6,21 +7,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/design-by-contract-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/design-by-contract-{{ version }}.tar.gz
   sha256: feacc898d9ab6b7b3ccc8b0eafbfd45b0fa9fe7f002ad16d0778a9a7edf57a27
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
     - poetry-core >=1.0.0
-    - python >=3.10,<4.0
+    - python {{ python_min }}
   run:
-    - python >=3.10,<4.0
+    - python >={{ python_min }},<4.0
 
 test:
   imports:
@@ -29,6 +30,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/StefanUlbrich/design-by-contract
